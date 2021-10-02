@@ -1,0 +1,48 @@
+{
+  "name": "currency-converter",
+  "version": "0.1.0",
+  "description": "Currency converter using currencyconverterapi.com API along with React and redux",
+  "author": "",
+  "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@mui/material": "^5.0.2",
+    "axios": "0.20.0",
+    "bootstrap": "^5.1.1",
+    "chart.js": "^3.5.1",
+    "chartjs": "^0.3.24",
+    "moment": "^2.29.1",
+    "ng2-charts": "^2.4.3",
+    "react": "16.13.1",
+    "react-bootstrap": "^1.6.4",
+    "react-chartjs-2": "^3.0.5",
+    "react-dom": "16.13.1",
+    "react-redux": "7.2.1",
+    "react-scripts": "3.4.3",
+    "react-tabs": "^3.2.2",
+    "redux": "4.0.5",
+    "redux-thunk": "2.3.0",
+    "styled-components": "5.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

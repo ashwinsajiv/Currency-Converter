@@ -1,0 +1,82 @@
+import {
+  FETCH_CURRENCY,
+  HANDEL_ERROR,
+  FROM_CHANGE_INPUT,
+  TO_CHANGE_INPUT,
+  FROM_CURRENCY_CHANGE,
+  TO_CURRENCY_CHANGE,
+  SWITCH_BETWEEN,
+  FETCH_HISTORY,
+  SAVE
+} from "../actions/types";
+import { convert } from "../../utils/currencyUtils";
+
+export default function(state, { type, payload }) {
+  switch (type) {
+    case FETCH_CURRENCY:
+      return {
+        ...state,
+        data: payload,
+        isFetched: true
+      };
+    case FETCH_HISTORY:
+      var history = Object.values(payload)[0];
+      var keys = Object.keys(history);
+      var values = Object.values(history);
+      return {
+        ...state,
+        historyDates: keys,
+        historyValues: values,
+        isHistoryFetched: true,
+      };
+    case SWITCH_BETWEEN:
+      return {
+        ...state,
+        to: state.from,
+        from: state.to,
+        convertTo: state.convertFrom,
+        convertFrom: state.convertTo,
+      };
+    case HANDEL_ERROR:
+      return {
+        ...state,
+        error: payload
+      };
+    case FROM_CHANGE_INPUT:
+      return {
+        ...state,
+        to: payload
+          ? convert({ amount: payload, state, mode: "from" })
+          : payload,
+        from: payload
+      };
+    case TO_CHANGE_INPUT:
+      return {
+        ...state,
+        from: payload
+          ? convert({ amount: payload, state, mode: "to" })
+          : payload,
+        to: payload
+      };
+    case TO_CURRENCY_CHANGE:
+      return {
+        ...state,
+        convertTo: payload || state.convertTo
+      };
+
+    case FROM_CURRENCY_CHANGE:
+      return {
+        ...state,
+        convertFrom: payload || state.convertFrom
+      };
+
+    case SAVE:
+      return {
+        ...state,
+        saved: payload
+      };
+
+    default:
+      return state || {};
+  }
+}
